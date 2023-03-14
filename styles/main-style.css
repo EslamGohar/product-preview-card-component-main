@@ -1,0 +1,104 @@
+body {
+	font-family: var(--ff-base);
+	font-weight: var(--fw-regular);
+	font-size: 0.875rem;
+	color: var(--clr-primary-400);
+	background-color: var(--clr-secondary-200);
+
+	display: grid;
+	place-content: center;
+	margin: 1rem;
+}
+
+.flex-group {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+/* for Screen Reader only */
+.visually-hidden:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.button {
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.75rem;
+
+	border: 0;
+	border-radius: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	background-color: var(--clr-primary-400);
+	color: var(--clr-neutral-100);
+	font-weight: var(--fw-bold);
+	font-size: 0.925rem;
+	transition: 0.3s;
+}
+
+.button:is(:hover, :focus) {
+	background-color: var(--clr-primary-500);
+}
+
+.button[data-icon="shopping-cart"]::before {
+	content: '';
+	width: 15px;
+	height: 16px;
+	background-image: url('../images/icon-cart.svg');
+}
+
+.product {
+	/* Custom Css Property it's only available locally for this '.product' class */
+	--content-padding: 1.5rem;
+	--content-spacing: 1rem;
+
+	display: grid;
+	background-color: var(--clr-neutral-100);
+	border-radius: 0.5rem;
+	overflow: hidden;
+	max-width: 600px
+}
+
+@media (min-width: 600px) {
+	.product {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.product__content {
+	padding: var(--content-padding);
+	display: grid;
+	gap: var(--content-spacing);
+}
+
+.product__category {
+	font-size: 0.8125rem;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+}
+
+.product__title {
+	font-size: 2rem;
+	font-family: var(--ff-accent);
+	color: var(--clr-neutral-900);
+}
+
+.product__price {
+	font-size: 2rem;
+	font-family: var(--ff-accent);
+	color: var(--clr-primary-400)
+}
+
+.product__price-original {
+	color: var(--clr-neutral-400);
+}
